@@ -1,0 +1,19 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Deque<String> words = new ArrayDeque<>();
+
+        words.add("Apple");
+        words.add("Banana");
+        words.add("Orange");
+        words.add("Grape");
+        words.add("Mango");
+
+        while (!words.isEmpty()) {
+            System.out.println(words.remove());
+        }
+    }
+}
