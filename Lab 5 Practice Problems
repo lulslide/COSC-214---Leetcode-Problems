@@ -1,0 +1,116 @@
+Part I - Fundamental Operations
+
+import java.util.HashMap;
+
+public class BasicHashMapExample {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> students = new HashMap<>();
+
+        // Insert students
+        students.put(101, "Alice");
+        students.put(102, "Bob");
+        students.put(103, "Charlie");
+
+        // Retrieve a student
+        System.out.println(students.get(101));
+
+        // Update Bob's name
+        students.put(102, "Robert");
+
+        // Remove Charlie
+        students.remove(103);
+
+        // Print updated map
+        System.out.println(students);
+    }
+}
+
+Part II - Frequency Counting Pattern
+
+import java.util.HashMap;
+
+public class FrequencyCount {
+
+    public static HashMap<Integer, Integer> frequencyCount(int[] nums) {
+
+        HashMap<Integer, Integer> freq = new HashMap<>();
+
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+
+        return freq;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {1, 2, 2, 3, 1, 1, 4};
+
+        System.out.println(frequencyCount(nums));
+    }
+}
+
+Part III - Duplicate Detections
+
+import java.util.HashSet;
+
+public class FirstDuplicate {
+
+    public static Integer firstDuplicate(int[] nums) {
+
+        HashSet<Integer> seen = new HashSet<>();
+
+        for (int num : nums) {
+
+            if (seen.contains(num)) {
+                return num;
+            }
+
+            seen.add(num);
+        }
+
+        return null;
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {3, 1, 4, 2, 5, 3};
+
+        System.out.println(firstDuplicate(nums));
+    }
+}
+
+Part IV - Two Sum Problem
+
+import java.util.HashMap;
+import java.util.Arrays;
+
+public class TwoSum {
+
+    public static int[] twoSum(int[] nums, int target) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int complement = target - nums[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        return new int[]{};
+    }
+
+    public static void main(String[] args) {
+
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+
+        System.out.println(Arrays.toString(twoSum(nums, target)));
+    }
+}
